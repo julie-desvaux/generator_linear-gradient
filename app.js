@@ -5,6 +5,7 @@ const containerColors = document.querySelector(".container-colors");
 const bg = document.body;
 const span = document.querySelector("span");
 const btnRandom = document.querySelector(".random");
+const inputResult = document.querySelector(".input-result");
 let index = 3;
 
 let valColors = ["#BA5370", "#F4E2D8"];
@@ -15,6 +16,7 @@ inputsColor[0].style.background = valColors[0];
 inputsColor[1].style.background = valColors[1];
 
 bg.style.background = `linear-gradient(${tilt}deg, ${valColors}`;
+inputResult.value = `linear-gradient(${tilt}deg, ${valColors}`;
 
 // INPUTS BASICS
 inputsColor.forEach((inp) => {
@@ -51,6 +53,7 @@ function addDelete(e) {
 
 		valColors.push(`#${randomColor.toUpperCase()}`);
 
+		inputResult.value = `linear-gradient(${tilt}deg, ${valColors}`;
 		bg.style.background = `linear-gradient(${tilt}deg, ${valColors}`;
 		index++;
 	} else if (e.target.className === "minus") {
@@ -60,6 +63,7 @@ function addDelete(e) {
 			valColors.pop();
 			allInputs[allInputs.length - 1].remove();
 			bg.style.background = `linear-gradient(${tilt}deg, ${valColors}`;
+			inputResult.value = `linear-gradient(${tilt}deg, ${valColors}`;
 			index--;
 		}
 	}
@@ -76,6 +80,7 @@ function updateColors(e) {
 	valColors[indexNow - 1] = e.target.value.toUpperCase();
 	e.target.style.background = valColors[indexNow - 1];
 	bg.style.background = `linear-gradient(${tilt}deg, ${valColors}`;
+	inputResult.value = `linear-gradient(${tilt}deg, ${valColors}`;
 }
 
 // RANDOM COLOR
